@@ -35,9 +35,7 @@
     </languages>
 
     <!-- Update servers -->
-    <!--
     <updateservers>
-        <server type="extension" priority="1" name="storychief">https://raw.githubusercontent.com/Story-Chief/joomla-component-storychief/master/storychief/updates.xml</server>
+        <server type="extension" priority="1" name="storychief">https://raw.githubusercontent.com/Story-Chief/joomla-component-storychief/master/storychief/update.xml</server>
     </updateservers>
-    -->
 </extension>
