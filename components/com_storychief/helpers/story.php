@@ -48,8 +48,8 @@ class StoryHelper {
         $this->mapCustomFields();
 
         return [
-            "id"  => $this->getStoryId(),
-            "url" => $this->getStoryUrl(),
+            'id'        => $this->getStoryId(),
+            'permalink' => $this->getStoryUrl(),
         ];
     }
 
@@ -71,8 +71,8 @@ class StoryHelper {
         $this->mapCustomFields();
 
         return [
-            "id"  => $this->getStoryId(),
-            "url" => $this->getStoryUrl(),
+            'id'        => $this->getStoryId(),
+            'permalink' => $this->getStoryUrl(),
         ];
     }
 
@@ -85,7 +85,10 @@ class StoryHelper {
             throw new Exception('Not found', 404);
         }
 
-        return '';
+        return [
+            'id'        => $this->data['external_id'],
+            'permalink' => null,
+        ];
     }
 
     /**
