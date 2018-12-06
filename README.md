@@ -17,8 +17,8 @@ This plugin:
 1. [Register](https://app.storychief.io/register) on StoryChief
 2. Add a 'Custom Website' channel
 3. Set the webhook to: http(s)://mywebsite.com/component/storychief?task=webhook
-4. Install and activate the plugin
-5. Configure the plugin by saving your encryption key
+4. [Download](https://github.com/Story-Chief/joomla-component-storychief/releases/latest) & install the component
+5. Configure the plugin by saving your encryption key from StoryChief
 6. Publish from Story Chief to your Joomla! website
 
 ## REQUIREMENTS
