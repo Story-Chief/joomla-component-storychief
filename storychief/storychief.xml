@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="component" version="3.8" method="upgrade">
+    <name>COM_STORYCHIEF</name>
+    <creationDate>30/11/2018</creationDate>
+    <author>Story Chief NV</author>
+    <authorEmail>support@storychief.io</authorEmail>
+    <authorUrl>https://storychief.io</authorUrl>
+    <copyright>(C) 2018 Story Chief NV. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0</version>
+    <description>Connect your Joomla! website to StoryChief and publish straight to Joomla!.</description>
+
+    <!-- Front-end files -->
+    <files folder="components/com_storychief">
+        <filename>storychief.php</filename>
+        <filename>controller.php</filename>
+        <folder>helpers</folder>
+    </files>
+
+    <!-- Back-end files -->
+    <administration>
+        <!-- Core files -->
+        <files folder="administrator/components/com_storychief">
+            <filename>storychief.php</filename>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>LICENSE.txt</filename>
+            <folder>language</folder>
+        </files>
+    </administration>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.com_storychief.sys.ini</language>
+    </languages>
+
+    <!-- Update servers -->
+    <!--
+    <updateservers>
+        <server type="extension" priority="1" name="storychief">https://www.example.com/storychief.xml</server>
+    </updateservers>
+    -->
+</extension>

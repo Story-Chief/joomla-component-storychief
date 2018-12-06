@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset
+            name="settings"
+            label="COM_STORYCHIEF_CONFIG_SETTINGS_LABEL"
+            description="COM_STORYCHIEF_CONFIG_SETTINGS_DESC"
+    >
+        <field
+                name="encryption_key"
+                type="password"
+                label="COM_STORYCHIEF_FIELD_KEY_LABEL"
+                description="COM_STORYCHIEF_FIELD_KEY_DESC"
+        />
+
+        <field
+                name="default_category"
+                type="text"
+                label="COM_STORYCHIEF_FIELD_DEFAULT_CATEGORY_LABEL"
+                description="COM_STORYCHIEF_FIELD_DEFAULT_CATEGORY_DESC"
+        />
+
+        <field name="field_mapping"
+               type="repeatable"
+               icon="list"
+               label="COM_STORYCHIEF_FIELD_MAPPING_LABEL"
+               description="COM_STORYCHIEF_FIELD_MAPPING_DESC"
+        >
+            <fieldset hidden="true" name="field_mapping_modal" repeat="true">
+                <field name="field_joomla_id"
+                       type="text"
+                       label="COM_STORYCHIEF_FIELD_JOOMLA_FIELD_ID_LABEL"
+                       description="COM_STORYCHIEF_FIELD_JOOMLA_FIELD_ID_DESC"
+                />
+                <field name="field_storychief_id"
+                       type="text"
+                       label="COM_STORYCHIEF_FIELD_STORYCHIEF_FIELD_ID_LABEL"
+                       description="COM_STORYCHIEF_FIELD_STORYCHIEF_FIELD_ID_DESC"
+                />
+            </fieldset>
+        </field>
+
+    </fieldset>
+
+    <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+        <field name="rules"
+               type="rules"
+               label="JCONFIG_PERMISSIONS_LABEL"
+               filter="rules"
+               component="com_storychief"
+               section="component">
+        </field>
+    </fieldset>
+</config>
