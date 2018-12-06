@@ -40,4 +40,24 @@
         <targetplatform name="joomla" version="3.9"/>
         <php_minimum>7.0.0</php_minimum>
     </update>
+    <update>
+        <name>StoryChief</name>
+        <description>Connect your Joomla! website to StoryChief and publish straight to Joomla!</description>
+        <element>com_storychief</element>
+        <type>component</type>
+        <version>1.0.4</version>
+        <infourl title="StoryChief">https://storychief.io</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">
+                https://github.com/Story-Chief/joomla-component-storychief/archive/v1.0.4.zip
+            </downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>StoryChief</maintainer>
+        <maintainerurl>https://storychief.io</maintainerurl>
+        <targetplatform name="joomla" version="3.9"/>
+        <php_minimum>7.0.0</php_minimum>
+    </update>
 </updates>

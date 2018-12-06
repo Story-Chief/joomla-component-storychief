@@ -26,7 +26,7 @@ class StorychiefController extends BaseController {
             $payload = json_decode(file_get_contents('php://input'), true);
 
             if (!$this->validatePayload($payload)) {
-                throw new Exception('Invalid request', 422);
+                throw new Exception('Invalid mac', 422);
             }
 
             $articles = new StoryHelper($payload);
@@ -41,6 +41,9 @@ class StorychiefController extends BaseController {
                     break;
                 case 'delete':
                     $data = $articles->delete();
+                    break;
+                case 'test':
+                    $data = null;
                     break;
                 default:
                     throw new Exception("Unknown event: \"$event\"", 500);

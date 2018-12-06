@@ -15,10 +15,11 @@ This plugin:
 
 ## HOW IT WORKS
 1. [Register](https://app.storychief.io/register) on StoryChief
-2. Add a Joomla! channel
-3. Install and activate the plugin
-4. Configure the plugin by saving your encryption key
-5. Publish from Story Chief to your Joomla! website
+2. Add a 'Custom Website' channel
+3. Set the webhook to: http(s)://mywebsite.com/component/storychief?task=webhook
+4. Install and activate the plugin
+5. Configure the plugin by saving your encryption key
+6. Publish from Story Chief to your Joomla! website
 
 ## REQUIREMENTS
 - This plugin requires a Story Chief account.
