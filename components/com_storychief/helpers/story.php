@@ -103,20 +103,22 @@ class StoryHelper {
             'xreference' => '',
         ];
 
+        $image_path = $this->sideloadImage();
         $image_data = [
-            "image_intro"            => $this->sideloadImage(),
+            "image_intro"            => $image_path,
             "float_intro"            => '',
-            "image_intro_alt"        => '',
+            "image_intro_alt"        => $this->data['title'],
             "image_intro_caption"    => '',
-            "image_fulltext"         => '',
+            "image_fulltext"         => $image_path,
             "float_fulltext"         => '',
-            "image_fulltext_alt"     => '',
+            "image_fulltext_alt"     => $this->data['title'],
             "image_fulltext_caption" => '',
         ];
 
         $this->story->title = $this->data['title'];
         $this->story->alias = $this->data['seo_slug'] ?: JFilterOutput::stringURLSafe($this->data['title']);
-        $this->story->introtext = $this->data['content'];
+        $this->story->introtext = '<p>'.$this->data['excerpt'].'</p>';
+        $this->story->fulltext = $this->data['content'];
         $this->story->state = 1;
         $this->story->created_by_alias = $author_name;
         $this->story->metadesc = $this->data['seo_description'] ?: ['$this->data->excerpt'];
