@@ -213,7 +213,7 @@ class StoryHelper {
         if (!isset($this->data['featured_image']['data']['sizes']['full'])) return '';
 
         $ext_file_uri = $this->data['featured_image']['data']['sizes']['full'];
-        $ext_filename = $this->data['featured_image']['data']['name'];
+        $ext_filename = strtolower($this->data['featured_image']['data']['name']);
         $tmp_file_location = JFactory::getApplication()->get('tmp_path') . DIRECTORY_SEPARATOR . $ext_filename;
 
         // download the image in tmp folder
