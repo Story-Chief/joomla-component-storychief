@@ -273,11 +273,13 @@ class StoryHelper {
             $db->quoteName('published') . ' = 1',
         ];
 
+        /*
         if (Multilanguage::isEnabled()) {
             $constraints[] = $db->quoteName('language') . ' = ' . $db->quote($this->data['language']);
         } else {
             $constraints[] = $db->quoteName('language') . ' = ' . $db->quote('*');
         }
+        */
 
         $query
             ->select($db->quoteName('id'))
