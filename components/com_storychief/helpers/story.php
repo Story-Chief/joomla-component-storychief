@@ -60,9 +60,6 @@ class StoryHelper {
 
         $this->mapData();
 
-        // don't change the url on update
-        unset($this->story->alias);
-
         // Check to make sure our data is valid, raise notice if it's not.
         if (!$this->story->check() || !$this->story->store(false)) {
             throw new Exception($this->story->getError(), 500);
@@ -116,7 +113,9 @@ class StoryHelper {
         ];
 
         $this->story->title = $this->data['title'];
-        $this->story->alias = $this->data['seo_slug'] ?: JFilterOutput::stringURLSafe($this->data['title']);
+        if($this->data['seo_slug']){
+            $this->story->alias = $this->data['seo_slug'];
+        }
         $this->story->introtext = '<p>'.$this->data['excerpt'].'</p>';
         $this->story->fulltext = $this->data['content'];
         $this->story->state = 1;
