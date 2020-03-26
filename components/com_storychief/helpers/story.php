@@ -11,6 +11,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Multilanguage;
+use Joomla\CMS\Table\Table;
 
 /**
  * Story Helper
@@ -123,6 +124,24 @@ class StoryHelper {
         $this->story->metadesc = $this->data['seo_description'] ?: ['$this->data->excerpt'];
         $this->story->metadata = json_encode($meta_data);
         $this->story->images = json_encode($image_data);
+
+        if(isset($this->data['tags']['data']) && !empty($this->data['tags']['data'])){
+            $tags = [];
+            Table::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_tags/tables');
+            $tagTable  = Table::getInstance('Tag', 'TagsTable');
+            $canCreateTags = \JFactory::getUser()->authorise('core.create', 'com_tags');
+            foreach ($this->data['tags']['data'] as $tag){
+                if($canCreateTags){
+                    $tags[] = '#new#'.$tag['name'];
+                }else{
+                    $tagTable->reset();
+                    if ($tagTable->load(array('title' => $tag['name']))) {
+                        $tags[] = (string) $tagTable->id;
+                    }
+                }
+            }
+            $this->story->newTags = $tags;
+        }
     }
 
     /**

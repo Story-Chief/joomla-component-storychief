@@ -12,6 +12,7 @@ This component:
 - Imports text and images from your StoryChief story
 - Supports custom fields
 - Support multi-language
+- Supports tags
 
 ## HOW IT WORKS
 1. [Register](https://app.storychief.io/register) on StoryChief
@@ -26,3 +27,14 @@ This component:
     - Not a Story Chief user yet? [Sign up](https://app.storychief.io/register) for free!
 - Joomla! 3.9 or higher
 - PHP version 7.0 or higher
+
+## FAQs
+
+### New tags aren't added to the articles. 
+
+You need to give public permission to create tags.
+
+Navigate to: "Global Configuration" -> "Tags" -> "Permissions".
+
+For the public group set "create" to "allowed" and save the configuration
+
