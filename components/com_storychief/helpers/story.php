@@ -158,7 +158,9 @@ class StoryHelper {
                         $value_key = array_search($mapping_key, array_column($this->data['custom_fields'], 'key'));
                         $field_value = $this->data['custom_fields'][$value_key]['value'];
                         $this->deleteCustomFieldValue($field_id);
-                        $this->saveCustomFieldValue($field_id, $field_value);
+                        if($field_value) {
+                            $this->saveCustomFieldValue($field_id, $field_value);
+                        }
                     }
                 }
             }
