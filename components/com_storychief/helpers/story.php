@@ -102,14 +102,15 @@ class StoryHelper {
         ];
 
         $image_path = $this->sideloadImage();
+        $image_alt = (isset($this->data['featured_image']['data']['alt']) && $this->data['featured_image']['data']['alt']) ? $this->data['featured_image']['data']['alt'] : $this->data['title'];
         $image_data = [
             "image_intro"            => $image_path,
             "float_intro"            => '',
-            "image_intro_alt"        => $this->data['title'],
+            "image_intro_alt"        => $image_alt,
             "image_intro_caption"    => '',
             "image_fulltext"         => $image_path,
             "float_fulltext"         => '',
-            "image_fulltext_alt"     => $this->data['title'],
+            "image_fulltext_alt"     => $image_alt,
             "image_fulltext_caption" => '',
         ];
 
