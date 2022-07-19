@@ -57,9 +57,8 @@ class StoryHelper
     public function __construct(array $payload)
     {
         $this->data = $payload["data"];
-        $this->parameterStore = ComponentHelper::getParams('com_storychief');
 
-        $this->registry = Factory::getApplication()->getConfig();
+        $this->registry = ComponentHelper::getParams('com_storychief');
 
         /** @var MVCFactory $factory */
         $factory = Factory::getApplication()
