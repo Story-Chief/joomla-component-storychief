@@ -20,12 +20,15 @@
         />
 
         <field name="field_mapping"
-               type="repeatable"
+               type="subform"
                icon="list"
+               multiple="true"
+               min="1"
+               max="10"
                label="COM_STORYCHIEF_FIELD_MAPPING_LABEL"
                description="COM_STORYCHIEF_FIELD_MAPPING_DESC"
         >
-            <fieldset hidden="true" name="field_mapping_modal" repeat="true">
+            <form>
                 <field name="field_joomla_id"
                        type="text"
                        label="COM_STORYCHIEF_FIELD_JOOMLA_FIELD_ID_LABEL"
@@ -36,9 +39,8 @@
                        label="COM_STORYCHIEF_FIELD_STORYCHIEF_FIELD_ID_LABEL"
                        description="COM_STORYCHIEF_FIELD_STORYCHIEF_FIELD_ID_DESC"
                 />
-            </fieldset>
+            </form>
         </field>
-
     </fieldset>
 
     <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
