@@ -14,7 +14,7 @@
 
         <field
                 name="default_category"
-                type="text"
+                type="number"
                 label="COM_STORYCHIEF_FIELD_DEFAULT_CATEGORY_LABEL"
                 description="COM_STORYCHIEF_FIELD_DEFAULT_CATEGORY_DESC"
         />
