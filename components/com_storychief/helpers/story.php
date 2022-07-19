@@ -270,19 +270,14 @@ class StoryHelper
      */
     protected function mapCustomFields(CMSObject $article): void
     {
-        $mapping = json_decode($this->parameterStore->get('field_mapping'), true);
+        $mapping =  $this->registry->get('field_mapping', new stdClass());
 
-        if (!empty($mapping) && isset($mapping['field_joomla_id'])) {
-            foreach ($mapping['field_joomla_id'] as $key => $fieldId) {
-                if (isset($mapping['field_storychief_id'][$key]) && !empty($mapping['field_storychief_id'][$key])) {
-                    $mappingKey = $mapping['field_storychief_id'][$key];
-                    if ($fieldId && $mappingKey) {
-                        $valueKey = array_search($mappingKey, array_column($this->data['custom_fields'], 'key'));
-                        $fieldValue = $this->data['custom_fields'][$valueKey]['value'];
+        foreach ($mapping as $field) {
+            if (isset($field->field_joomla_id, $field->field_storychief_id)) {
+                $valueKey = array_search($field->field_storychief_id, array_column($this->data['custom_fields'], 'key'));
+                $fieldValue = $this->data['custom_fields'][$valueKey]['value'] ?? null;
 
-                        $this->fields->setFieldValue($fieldId, $article->get('id'), $fieldValue);
-                    }
-                }
+                $this->fields->setFieldValue($field->field_joomla_id, $article->get('id'), $fieldValue);
             }
         }
     }
