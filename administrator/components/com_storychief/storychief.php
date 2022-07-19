@@ -2,25 +2,25 @@
 /**
  * @package    storychief
  *
- * @author     Greg <your@email.com>
+ * @author     StoryChief <support@storychief.io>
  * @copyright  A copyright
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
- * @link       http://your.url.com
+ * @license    GNU General Public License version 3 or later; see LICENSE.txt
+ * @link       https://storychief.io/integrations/joomla
  */
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\BaseController;
+use Joomla\CMS\Version;
 
 defined('_JEXEC') or die;
 
-
-if (version_compare(PHP_VERSION, '7.0.0', 'lt')) {
-    die('Your PHP version is too old for this component (min 7.0).');
+if (version_compare(PHP_VERSION, '7.2.0', 'lt')) {
+    die('Your PHP version is too old for this component (min 7.2).');
 }
 
-if (version_compare(JVERSION::RELEASE, '3.9', 'lt')) {
-    die('Your Joomla! version is too old for this component (min 3.9).');
+if (version_compare(Version::MAJOR_VERSION.'.'.Version::MINOR_VERSION.'.'.Version::PATCH_VERSION, '4.1', 'lt')) {
+    die('Your Joomla! version is too old for this component (min 4.1).');
 }
 
 // Access check.
