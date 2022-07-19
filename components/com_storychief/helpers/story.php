@@ -318,7 +318,7 @@ class StoryHelper
 
         $extFileUri = $this->data['featured_image']['data']['sizes']['full'];
         $extFilename = strtolower($this->data['featured_image']['data']['name']);
-        $tmpFileLocation = $this->registry->get('tmp_path').DIRECTORY_SEPARATOR.$extFilename;
+        $tmpFileLocation = JPATH_ROOT.'/tmp'.DIRECTORY_SEPARATOR.$extFilename;
 
         // download the image in tmp folder
         file_put_contents($tmpFileLocation, fopen($extFileUri, 'r'));
