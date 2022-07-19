@@ -43,4 +43,12 @@ You need to give public permission to create tags.
 
 Navigate to: "System" -> "Global Configuration" -> "Tags" -> "Permissions".
 
-For the public group set "create" to "allowed" for Administrator and save the configuration.
+For the public group set "create" to "allowed" for public and save the configuration.
+
+### Custom fields aren't saved
+
+You need to give public permission to save fields.
+
+Navigate to: "System" -> "Global Configuration" -> "Articles" -> "Permissions".
+
+For the public group set "Edit Custom Field Value" to "allowed" for public and save the configuration.
