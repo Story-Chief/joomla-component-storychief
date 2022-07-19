@@ -2,24 +2,20 @@
 /**
  * @package    storychief
  *
- * @author     Greg <your@email.com>
+ * @author     StoryChief <support@storychief.io>
  * @copyright  A copyright
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
- * @link       http://your.url.com
+ * @license    GNU General Public License version 3 or later; see LICENSE.txt
+ * @link       https://storychief.io/integrations/joomla
  */
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\Helpers\Sidebar;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView;
+use Joomla\CMS\Toolbar\ToolbarHelper;
 
 defined('_JEXEC') or die;
 
-/**
- * storychief view.
- *
- * @package  storychief
- * @since    1.0
- */
 class StorychiefViewStorychief extends HtmlView {
 
     /**
@@ -44,8 +40,9 @@ class StorychiefViewStorychief extends HtmlView {
         // Show the toolbar
         $this->toolbar();
 
-        $this->sidebar = JHtmlSidebar::render();
-        return parent::display($tpl);
+        $this->sidebar = Sidebar::render();
+
+        parent::display($tpl);
     }
 
     /**
@@ -57,12 +54,12 @@ class StorychiefViewStorychief extends HtmlView {
      */
     private function toolbar()
     {
-        JToolBarHelper::title(Text::_('COM_STORYCHIEF'), '');
+        ToolbarHelper::title(Text::_('COM_STORYCHIEF'), '');
 
         // Options button.
         if (Factory::getUser()->authorise('core.admin', 'com_storychief'))
         {
-            JToolBarHelper::preferences('com_storychief');
+            ToolbarHelper::preferences('com_storychief');
         }
     }
 }
