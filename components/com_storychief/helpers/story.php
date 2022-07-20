@@ -298,11 +298,10 @@ class StoryHelper
     protected function getStoryUrl(CMSObject $article): string
     {
         return Route::_(
-            Uri::root().'/'.
-            RouteHelper::getArticleRoute(
+            Uri::root().RouteHelper::getArticleRoute(
                 $article->get('id'),
-                $article->get('catid'),
-                $article->get('language')
+                $article->get('catid') ?: 0,
+                $article->get('language') ?: 0
             )
         );
     }
