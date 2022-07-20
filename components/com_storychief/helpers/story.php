@@ -254,10 +254,12 @@ class StoryHelper
                             'access' => 1,
                             'description' => '',
                             'language' => '*',
+                            'parent_id' => 0,
                         ]
                     );
 
-                    $article['tags'][] = $this->tags->getItem()->id;
+                    // Save new created tag
+                    $article['tags'][] = $this->tags->getItem()->get('id');
                 } else {
                     $article['tags'][] = $tagId;
                 }
