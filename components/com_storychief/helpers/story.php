@@ -372,7 +372,7 @@ class StoryHelper
     protected function findCategoryIdOrDefault(): int
     {
         $category = $this->data['category']['data'] ?? null;
-        $categoryId = null;
+        $categoryId = 0;
 
         if ($category) {
             $db = Factory::getDbo();
@@ -391,9 +391,7 @@ class StoryHelper
                 ->where($constraints)
                 ->setLimit(1);
 
-            $categoryId = $db->setQuery($query)->loadResult();
-
-            if (!$categoryId) {
+            if (!($categoryId = $db->setQuery($query)->loadResult())) {
                 $this->categories->save(
                     [
                         'path' => $category['slug'],
@@ -405,13 +403,14 @@ class StoryHelper
                         'level' => 0,
                         'description' => '',
                         'language' => '*',
+                        'parent_id' => 0,
                     ]
                 );
 
                 $categoryId = $this->categories->getItem()->get('id');
             }
         } else {
-            $categoryId = $this->parameterStore->get('default_category');
+            $categoryId = $this->registry->get('default_category');
         }
 
         if (!$categoryId) {
