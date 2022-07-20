@@ -109,9 +109,9 @@ class StoryHelper
             throw new Exception($this->articles->getError(), 500);
         }
 
-        $this->mapCustomFields($this->articles);
-
         $article = $this->articles->getItem();
+
+        $this->mapCustomFields($article);
 
         return [
             'id' => $this->getStoryId($article),
