@@ -317,9 +317,11 @@ class StoryHelper
             return '';
         }
 
+        $config = Factory::getApplication()->getConfig();
+
         $extFileUri = $this->data['featured_image']['data']['sizes']['full'];
         $extFilename = strtolower($this->data['featured_image']['data']['name']);
-        $tmpFileLocation = JPATH_ROOT.'/tmp'.DIRECTORY_SEPARATOR.$extFilename;
+        $tmpFileLocation = $config->get('tmp_path', JPATH_ROOT.'/tmp').DIRECTORY_SEPARATOR.$extFilename;
 
         // download the image in tmp folder
         file_put_contents($tmpFileLocation, fopen($extFileUri, 'r'));
