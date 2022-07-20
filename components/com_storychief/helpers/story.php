@@ -223,7 +223,7 @@ class StoryHelper
         $article['fulltext'] = $this->data['content'];
         $article['state'] = 1;
         $article['created_by_alias'] = $authorName;
-        $article['metadesc'] = $this->data['seo_description'] ?: ['$this->data->excerpt'];
+        $article['metadesc'] = $this->data['seo_description'] ?: $this->data['excerpt'] ?: '';
         $article['metadata'] = json_encode($metaData);
         $article['images'] = json_encode($imageData);
 
