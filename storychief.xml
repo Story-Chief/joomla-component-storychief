@@ -31,8 +31,8 @@
     </administration>
 
     <languages folder="language">
-        <language tag="en-GB">language/en-GB/en-GB.com_storychief.ini</language>
-        <language tag="en-GB">language/en-GB/en-GB.com_storychief.sys.ini</language>
+        <language tag="en-GB">en-GB/en-GB.com_storychief.ini</language>
+        <language tag="en-GB">en-GB/en-GB.com_storychief.sys.ini</language>
     </languages>
 
     <!-- Update servers -->
