@@ -31,9 +31,9 @@ Gain better collaboration, create more interactive and beautiful content with [S
 - Joomla! 4.0 or higher
 - PHP version 7.4 or higher
 
-If you want to use StoryChief for your **Joomla 3** website, instead please use the following link:
+If you want to use StoryChief for your **Joomla 3** website, instead please use this download link:
 
-https://github.com/Story-Chief/joomla-component-storychief/tree/3.x
+https://github.com/Story-Chief/joomla-component-storychief/archive/refs/heads/3.x.zip
 
 ## FAQs
 
