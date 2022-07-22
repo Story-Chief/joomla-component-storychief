@@ -19,7 +19,7 @@ Gain better collaboration, create more interactive and beautiful content with [S
 ## HOW IT WORKS
 
 1. [Register](https://app.storychief.io/register) on StoryChief
-2. Add a 'Custom Website' channel
+2. Add a 'Joomla' channel
 3. Set the webhook to: http(s)://mywebsite.com/component/storychief?task=webhook
 4. [Download](https://github.com/Story-Chief/joomla-component-storychief/releases/latest) & install the component
 5. Configure the component by saving your encryption key from StoryChief
