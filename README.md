@@ -20,7 +20,7 @@ Gain better collaboration, create more interactive and beautiful content with [S
 
 1. [Register](https://app.storychief.io/register) on StoryChief
 2. Add a 'Joomla' channel
-3. Set the webhook to: http(s)://mywebsite.com/component/storychief?task=webhook
+3. Set the webhook to: https://mywebsite.com/
 4. [Download](https://github.com/Story-Chief/joomla-component-storychief/releases/latest) & install the component
 5. Configure the component by saving your encryption key from StoryChief
 6. Publish from Story Chief to your Joomla! website
