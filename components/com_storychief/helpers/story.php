@@ -28,6 +28,7 @@ use Joomla\Component\Tags\Administrator\Model\TagModel;
 use Joomla\Database\ParameterType;
 use Joomla\Registry\Registry;
 use Joomla\CMS\Helper\MediaHelper;
+use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 
 class StoryHelper
 {
@@ -95,6 +96,7 @@ class StoryHelper
     public function publish(): array
     {
         $fields = [];
+        $fields['id'] = null;
         $fields['urls'] = '{"urla":false,"urlatext":"","targeta":"","urlb":false,"urlbtext":"","targetb":"","urlc":false,"urlctext":"","targetc":""}';
         $fields['attribs'] = '{"article_layout":"","show_title":"","link_titles":"","show_intro":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_icons":"","show_print_icon":"","show_email_icon":"","show_vote":"","show_hits":"","show_noauth":"","alternative_readmore":"","show_publishing_options":"","show_article_options":"","show_urls_images_backend":"","show_urls_images_frontend":""}';
         $fields['access'] = 1;
@@ -247,6 +249,7 @@ class StoryHelper
                 if (!$tagId) {
                     $this->tags->save(
                         [
+                            'id' => null,
                             'path' => $tag['slug'],
                             'alias' => $tag['slug'],
                             'title' => $tag['name'],
@@ -272,12 +275,14 @@ class StoryHelper
      */
     protected function mapCustomFields(CMSObject $article): void
     {
+        $fields = json_decode(json_encode(FieldsHelper::getFields('com_content.article', new CMSObject, true)), true);
+        $ids = array_column($fields, 'id');
         $mapping =  $this->registry->get('field_mapping', new stdClass());
 
         foreach ($mapping as $field) {
-            if (isset($field->field_joomla_id, $field->field_storychief_id)) {
+            if (isset($field->field_joomla_id, $field->field_storychief_id) && in_array($field->field_joomla_id, $ids)) {
                 $valueKey = array_search($field->field_storychief_id, array_column($this->data['custom_fields'], 'key'));
-                $fieldValue = $this->data['custom_fields'][$valueKey]['value'] ?? null;
+                $fieldValue = $valueKey !== false ? ($this->data['custom_fields'][$valueKey]['value'] ?? null) : null;
 
                 $this->fields->setFieldValue($field->field_joomla_id, $article->get('id'), $fieldValue);
             }
@@ -394,6 +399,7 @@ class StoryHelper
             if (!($categoryId = $db->setQuery($query)->loadResult())) {
                 $this->categories->save(
                     [
+                        'id' => null,
                         'path' => $category['slug'],
                         'alias' => $category['slug'],
                         'title' => $category['name'],
