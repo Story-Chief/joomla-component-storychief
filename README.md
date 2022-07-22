@@ -29,7 +29,7 @@ Gain better collaboration, create more interactive and beautiful content with [S
 - This component requires a StoryChief account.
     - Not a Story Chief user yet? [Sign up](https://app.storychief.io/register) for free!
 - Joomla! 4.0 or higher
-- PHP version 7.2 or higher
+- PHP version 7.4 or higher
 
 If you want to use StoryChief for your **Joomla 3** website, instead please use the following link:
 
