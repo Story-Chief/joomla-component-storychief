@@ -385,7 +385,7 @@ class StoryHelper
 
             $constraints = [
                 $db->quoteName('extension').' = '.$db->quote('com_content'),
-                $db->quoteName('path').' = '.$db->quote($category['slug']),
+                $db->quoteName('alias').' = '.$db->quote($category['slug']),
                 $db->quoteName('access').' = 1',
                 $db->quoteName('published').' = 1',
             ];
