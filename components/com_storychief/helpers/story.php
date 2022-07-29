@@ -229,6 +229,26 @@ class StoryHelper
         $article['metadata'] = json_encode($metaData);
         $article['images'] = json_encode($imageData);
 
+        if (isset($this->data['author']['data']['email'])) {
+            $db = Factory::getDbo();
+            $query = $db->getQuery(true);
+
+            $constraints = [
+                $db->quoteName('email').' = '.$db->quote($this->data['author']['data']['email']),
+            ];
+
+            $query
+                ->select($db->quoteName('id'))
+                ->from($db->quoteName('#__users'))
+                ->where($constraints)
+                ->setLimit(1);
+
+            if (($userId = $db->setQuery($query)->loadResult())) {
+                $article['created_by'] = $userId;
+                $article['created_by_alias'] = null;
+            }
+        }
+
         if (isset($this->data['tags']['data']) && !empty($this->data['tags']['data'])) {
             foreach ($this->data['tags']['data'] as $tag) {
                 $db = Factory::getDbo();
