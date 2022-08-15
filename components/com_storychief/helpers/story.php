@@ -262,9 +262,9 @@ class StoryHelper
                     );
 
                     // Save new created tag
-                    $article['tags'][] = $this->tags->getItem()->get('id');
+                    $article['tags'][] = (string)$this->tags->getItem()->get('id');
                 } else {
-                    $article['tags'][] = $tagId;
+                    $article['tags'][] = (string)$tagId;
                 }
             }
         }
